@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://badtpsxn5lago"]
 
-[ext_resource type="Script" path="res://examples/shared/scripts/lan-bootstrapper.gd" id="1_dy86e"]
+[ext_resource type="Script" path="res://examples/shared/scripts/yggdrasil-bootstrapper.gd" id="1_dy86e"]
 [ext_resource type="Script" path="res://examples/shared/scripts/noray-bootstrapper.gd" id="2_fgck5"]
 
 [node name="Network Popup" type="TabContainer"]
-custom_minimum_size = Vector2(360, 240)
+custom_minimum_size = Vector2(420, 340)
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.5
-offset_top = -48.5
-offset_right = 125.5
-offset_bottom = 48.5
+offset_left = -210.0
+offset_top = -170.0
+offset_right = 210.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -21,6 +21,38 @@ size_flags_vertical = 3
 
 [node name="LAN" type="VBoxContainer" parent="."]
 layout_mode = 2
+
+[node name="Transport Row" type="HBoxContainer" parent="LAN"]
+layout_mode = 2
+
+[node name="Transport Label" type="Label" parent="LAN/Transport Row"]
+layout_mode = 2
+text = "Transport:"
+
+[node name="Transport" type="OptionButton" parent="LAN/Transport Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 0
+popup/item_0/text = "Yggdrasil"
+popup/item_1/text = "ENet"
+popup/item_2/text = "WebRTC"
+
+[node name="Poll Rate Row" type="HBoxContainer" parent="LAN"]
+layout_mode = 2
+
+[node name="Poll Rate Label" type="Label" parent="LAN/Poll Rate Row"]
+layout_mode = 2
+text = "Physics Hz:"
+
+[node name="Poll Rate" type="SpinBox" parent="LAN/Poll Rate Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 10000.0
+step = 100.0
+value = 2000.0
+suffix = " Hz"
 
 [node name="Address Row" type="HBoxContainer" parent="LAN"]
 layout_mode = 2
@@ -37,14 +69,35 @@ size_flags_vertical = 0
 text = "localhost"
 
 [node name="Port Label" type="Label" parent="LAN/Address Row"]
+visible = false
 layout_mode = 2
 text = "Port:"
 
 [node name="Port LineEdit" type="LineEdit" parent="LAN/Address Row"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "16384"
+
+[node name="Discovery" type="VBoxContainer" parent="LAN"]
+layout_mode = 2
+
+[node name="Scan Row" type="HBoxContainer" parent="LAN/Discovery"]
+layout_mode = 2
+
+[node name="Scan Button" type="Button" parent="LAN/Discovery/Scan Row"]
+layout_mode = 2
+text = "Scan LAN"
+
+[node name="Status Label" type="Label" parent="LAN/Discovery/Scan Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Server List" type="ItemList" parent="LAN/Discovery"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 100)
+size_flags_vertical = 3
 
 [node name="Actions Row" type="HBoxContainer" parent="LAN"]
 layout_mode = 2
@@ -131,11 +184,18 @@ text = "Join"
 layout_mode = 2
 text = "Force Relay"
 
-[node name="LAN Bootstrapper" type="Node" parent="." node_paths=PackedStringArray("connect_ui", "address_input", "port_input")]
+[node name="LAN Bootstrapper" type="Node" parent="." node_paths=PackedStringArray("connect_ui", "address_input", "port_input", "port_label", "transport_dropdown", "discovery_container", "server_list", "scan_button", "status_label", "poll_rate_input")]
 script = ExtResource("1_dy86e")
 connect_ui = NodePath("..")
 address_input = NodePath("../LAN/Address Row/Address LineEdit")
 port_input = NodePath("../LAN/Address Row/Port LineEdit")
+port_label = NodePath("../LAN/Address Row/Port Label")
+transport_dropdown = NodePath("../LAN/Transport Row/Transport")
+discovery_container = NodePath("../LAN/Discovery")
+server_list = NodePath("../LAN/Discovery/Server List")
+scan_button = NodePath("../LAN/Discovery/Scan Row/Scan Button")
+status_label = NodePath("../LAN/Discovery/Scan Row/Status Label")
+poll_rate_input = NodePath("../LAN/Poll Rate Row/Poll Rate")
 
 [node name="Noray Bootstrapper" type="Node" parent="." node_paths=PackedStringArray("connect_ui", "noray_address_input", "oid_input", "host_oid_input", "force_relay_check")]
 script = ExtResource("2_fgck5")

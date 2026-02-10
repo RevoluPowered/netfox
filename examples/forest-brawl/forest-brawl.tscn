@@ -1,34 +1,34 @@
-[gd_scene load_steps=20 format=3 uid="uid://cwh2p0qb5872o"]
+[gd_scene format=3 uid="uid://cwh2p0qb5872o"]
 
 [ext_resource type="PackedScene" uid="uid://d1544gxqaoptc" path="res://examples/forest-brawl/maps/three-peaks.tscn" id="1_xksrt"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/brawler-spawner.gd" id="5_qv1fx"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/following-camera.gd" id="5_yxhn7"]
+[ext_resource type="Script" uid="uid://uqw0ew8y4tqf" path="res://examples/forest-brawl/scripts/brawler-spawner.gd" id="5_qv1fx"]
+[ext_resource type="Script" uid="uid://bqrt0ucoqar5v" path="res://examples/forest-brawl/scripts/following-camera.gd" id="5_yxhn7"]
 [ext_resource type="PackedScene" uid="uid://wi4owat0bml3" path="res://examples/forest-brawl/scenes/brawler.tscn" id="7_tcy3g"]
 [ext_resource type="PackedScene" uid="uid://bpf1jdr255nr0" path="res://examples/shared/ui/time-display.tscn" id="9_d2tot"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/score-manager.gd" id="9_vxjwh"]
+[ext_resource type="Script" uid="uid://cfe08o3gvubst" path="res://examples/forest-brawl/scripts/score-manager.gd" id="9_vxjwh"]
 [ext_resource type="LabelSettings" uid="uid://b4u1aluftkajy" path="res://examples/forest-brawl/ui-settings/player-stat-label.tres" id="10_0ix7v"]
-[ext_resource type="Script" path="res://addons/netfox/tick-interpolator.gd" id="10_ld676"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/settings/vsync-checkbutton.gd" id="11_4x74a"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/random-name-input.gd" id="11_cf8pu"]
+[ext_resource type="Script" uid="uid://dour8fehaaugp" path="res://addons/netfox/tick-interpolator.gd" id="10_ld676"]
+[ext_resource type="Script" uid="uid://gyiplrcda6mg" path="res://examples/forest-brawl/scripts/settings/vsync-checkbutton.gd" id="11_4x74a"]
+[ext_resource type="Script" uid="uid://bt0i7f3f8t5n2" path="res://examples/forest-brawl/scripts/random-name-input.gd" id="11_cf8pu"]
 [ext_resource type="PackedScene" uid="uid://b1vadi3ma8uiq" path="res://examples/forest-brawl/scenes/brawler-crown.tscn" id="11_eeeag"]
-[ext_resource type="Script" path="res://examples/shared/scripts/noray-bootstrapper.gd" id="11_vpdh0"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/player-stats-display.gd" id="12_5kocp"]
-[ext_resource type="Script" path="res://examples/shared/scripts/lan-bootstrapper.gd" id="12_gjc7i"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/settings/confine-mouse-checkbutton.gd" id="13_ujuuj"]
+[ext_resource type="Script" uid="uid://dbib5njqdsuc2" path="res://examples/shared/scripts/noray-bootstrapper.gd" id="11_vpdh0"]
+[ext_resource type="Script" uid="uid://iyihxxg5xrrr" path="res://examples/forest-brawl/scripts/player-stats-display.gd" id="12_5kocp"]
+[ext_resource type="Script" uid="uid://bys441n1uvn77" path="res://examples/shared/scripts/yggdrasil-bootstrapper.gd" id="12_gjc7i"]
+[ext_resource type="Script" uid="uid://nvr3jr0bviin" path="res://examples/forest-brawl/scripts/settings/confine-mouse-checkbutton.gd" id="13_ujuuj"]
 [ext_resource type="PackedScene" uid="uid://ojh5xofoserg" path="res://examples/forest-brawl/scenes/score_screen.tscn" id="14_85lvt"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/settings/fullscreen-checkbutton.gd" id="14_h1iqv"]
-[ext_resource type="Script" path="res://examples/forest-brawl/scripts/settings/volume-slider.gd" id="16_6pky3"]
+[ext_resource type="Script" uid="uid://doidsx4hyb4gd" path="res://examples/forest-brawl/scripts/settings/fullscreen-checkbutton.gd" id="14_h1iqv"]
+[ext_resource type="Script" uid="uid://ghfyw0kak8vn" path="res://examples/forest-brawl/scripts/settings/volume-slider.gd" id="16_6pky3"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_l686d"]
 font_size = 64
 
-[node name="Forest Brawl" type="Node3D"]
+[node name="Forest Brawl" type="Node3D" unique_id=1043332388]
 
-[node name="Three Peaks Map" parent="." instance=ExtResource("1_xksrt")]
+[node name="Three Peaks Map" parent="." unique_id=1145532032 instance=ExtResource("1_xksrt")]
 
-[node name="Network" type="Node" parent="."]
+[node name="Network" type="Node" parent="." unique_id=1125832150]
 
-[node name="Brawler Spawner" type="Node" parent="Network" node_paths=PackedStringArray("spawn_root", "camera", "joining_screen", "name_input")]
+[node name="Brawler Spawner" type="Node" parent="Network" unique_id=1045329430 node_paths=PackedStringArray("spawn_root", "camera", "joining_screen", "name_input")]
 unique_name_in_owner = true
 script = ExtResource("5_qv1fx")
 player_scene = ExtResource("7_tcy3g")
@@ -37,28 +37,28 @@ camera = NodePath("../../Camera3D")
 joining_screen = NodePath("../../UI/Joining Screen")
 name_input = NodePath("../../UI/Network Popup/Settings/Player Name/Player Name Input")
 
-[node name="Players" type="Node" parent="."]
+[node name="Players" type="Node" parent="." unique_id=1264622336]
 
-[node name="ScoreManager" type="Node" parent="." node_paths=PackedStringArray("scorescreen")]
+[node name="ScoreManager" type="Node" parent="." unique_id=906181768 node_paths=PackedStringArray("scorescreen")]
 script = ExtResource("9_vxjwh")
 scorescreen = NodePath("../UI/Score Screen")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=948558878]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 73.7461, 42)
 fov = 35.0
 script = ExtResource("5_yxhn7")
 distance = 16.0
 approach_time = 0.25
 
-[node name="TickInterpolator" type="Node" parent="Camera3D" node_paths=PackedStringArray("root")]
+[node name="TickInterpolator" type="Node" parent="Camera3D" unique_id=1766052883 node_paths=PackedStringArray("root")]
 script = ExtResource("10_ld676")
 root = NodePath("..")
 properties = Array[String]([":global_position"])
 
-[node name="Brawler Crown" parent="." instance=ExtResource("11_eeeag")]
+[node name="Brawler Crown" parent="." unique_id=1946452096 instance=ExtResource("11_eeeag")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=144319186]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,7 +66,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Time Display" parent="UI" instance=ExtResource("9_d2tot")]
+[node name="Time Display" parent="UI" unique_id=2064276876 instance=ExtResource("9_d2tot")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -77,220 +77,284 @@ grow_horizontal = 0
 grow_vertical = 1
 horizontal_alignment = 2
 
-[node name="Network Popup" type="TabContainer" parent="UI"]
-custom_minimum_size = Vector2(320, 240)
+[node name="Network Popup" type="TabContainer" parent="UI" unique_id=1394917103]
+custom_minimum_size = Vector2(420, 340)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -125.5
-offset_top = -105.0
-offset_right = 125.5
-offset_bottom = 105.0
+offset_left = -210.0
+offset_top = -170.0
+offset_right = 210.0
+offset_bottom = 170.0
 grow_horizontal = 2
 grow_vertical = 2
+current_tab = 0
 use_hidden_tabs_for_min_size = true
 
-[node name="Settings" type="VBoxContainer" parent="UI/Network Popup"]
+[node name="Settings" type="VBoxContainer" parent="UI/Network Popup" unique_id=959806219]
 layout_mode = 2
 size_flags_vertical = 3
+metadata/_tab_index = 0
 
-[node name="Player Name" type="HBoxContainer" parent="UI/Network Popup/Settings"]
+[node name="Player Name" type="HBoxContainer" parent="UI/Network Popup/Settings" unique_id=1428288488]
 layout_mode = 2
 
-[node name="Player Name Label" type="Label" parent="UI/Network Popup/Settings/Player Name"]
+[node name="Player Name Label" type="Label" parent="UI/Network Popup/Settings/Player Name" unique_id=2086158481]
 layout_mode = 2
 text = "Player Name:"
 
-[node name="Player Name Input" type="LineEdit" parent="UI/Network Popup/Settings/Player Name"]
+[node name="Player Name Input" type="LineEdit" parent="UI/Network Popup/Settings/Player Name" unique_id=871566658]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Nameless Brawler"
 clear_button_enabled = true
 script = ExtResource("11_cf8pu")
 
-[node name="GridContainer" type="GridContainer" parent="UI/Network Popup/Settings"]
+[node name="GridContainer" type="GridContainer" parent="UI/Network Popup/Settings" unique_id=1063386864]
 layout_mode = 2
 columns = 2
 
-[node name="Fullscreen" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer"]
+[node name="Fullscreen" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer" unique_id=1053391217]
 layout_mode = 2
 
-[node name="Fullscreen Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/Fullscreen"]
+[node name="Fullscreen Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/Fullscreen" unique_id=393808594]
 layout_mode = 2
 text = "Fullscreen:"
 
-[node name="Fullscreen CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/Fullscreen"]
+[node name="Fullscreen CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/Fullscreen" unique_id=32329120]
 layout_mode = 2
 script = ExtResource("14_h1iqv")
 
-[node name="V-Sync" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer"]
+[node name="V-Sync" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer" unique_id=567749665]
 layout_mode = 2
 
-[node name="V-Sync Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/V-Sync"]
+[node name="V-Sync Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/V-Sync" unique_id=1250236164]
 layout_mode = 2
 text = "V-Sync:"
 
-[node name="V-Sync CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/V-Sync"]
+[node name="V-Sync CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/V-Sync" unique_id=1270378792]
 layout_mode = 2
 script = ExtResource("11_4x74a")
 
-[node name="Confine mouse" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer"]
+[node name="Confine mouse" type="HBoxContainer" parent="UI/Network Popup/Settings/GridContainer" unique_id=1007202389]
 layout_mode = 2
 
-[node name="Confine Mouse Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/Confine mouse"]
+[node name="Confine Mouse Label" type="Label" parent="UI/Network Popup/Settings/GridContainer/Confine mouse" unique_id=1877413220]
 layout_mode = 2
 text = "Confine mouse:"
 
-[node name="Confine Mouse CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/Confine mouse"]
+[node name="Confine Mouse CheckButton" type="CheckButton" parent="UI/Network Popup/Settings/GridContainer/Confine mouse" unique_id=582473423]
 layout_mode = 2
 script = ExtResource("13_ujuuj")
 
-[node name="Volume" type="HBoxContainer" parent="UI/Network Popup/Settings"]
+[node name="Volume" type="HBoxContainer" parent="UI/Network Popup/Settings" unique_id=1388187135]
 layout_mode = 2
 
-[node name="Volume Label" type="Label" parent="UI/Network Popup/Settings/Volume"]
+[node name="Volume Label" type="Label" parent="UI/Network Popup/Settings/Volume" unique_id=1683806235]
 layout_mode = 2
 text = "Volume:"
 
-[node name="Volume Slider" type="HSlider" parent="UI/Network Popup/Settings/Volume"]
+[node name="Volume Slider" type="HSlider" parent="UI/Network Popup/Settings/Volume" unique_id=1025919930]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
 value = 100.0
 script = ExtResource("16_6pky3")
 
-[node name="LAN" type="VBoxContainer" parent="UI/Network Popup"]
+[node name="LAN" type="VBoxContainer" parent="UI/Network Popup" unique_id=1911320909]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 1
 
-[node name="Address Row" type="HBoxContainer" parent="UI/Network Popup/LAN"]
+[node name="Transport Row" type="HBoxContainer" parent="UI/Network Popup/LAN" unique_id=1298692619]
+layout_mode = 2
+
+[node name="Transport Label" type="Label" parent="UI/Network Popup/LAN/Transport Row"]
+layout_mode = 2
+text = "Transport:"
+
+[node name="Transport" type="OptionButton" parent="UI/Network Popup/LAN/Transport Row" unique_id=869393200]
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 0
+popup/item_0/text = "Yggdrasil"
+popup/item_1/text = "ENet"
+popup/item_2/text = "WebRTC"
+
+[node name="Poll Rate Row" type="HBoxContainer" parent="UI/Network Popup/LAN"]
+layout_mode = 2
+
+[node name="Poll Rate Label" type="Label" parent="UI/Network Popup/LAN/Poll Rate Row"]
+layout_mode = 2
+text = "Physics Hz:"
+
+[node name="Poll Rate" type="SpinBox" parent="UI/Network Popup/LAN/Poll Rate Row"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 10000.0
+step = 100.0
+value = 2000.0
+suffix = " Hz"
+
+[node name="Address Row" type="HBoxContainer" parent="UI/Network Popup/LAN" unique_id=54738064]
 layout_mode = 2
 size_flags_vertical = 2
 
-[node name="Address Label" type="Label" parent="UI/Network Popup/LAN/Address Row"]
+[node name="Address Label" type="Label" parent="UI/Network Popup/LAN/Address Row" unique_id=2015547436]
 layout_mode = 2
 text = "Address:"
 
-[node name="Address LineEdit" type="LineEdit" parent="UI/Network Popup/LAN/Address Row"]
+[node name="Address LineEdit" type="LineEdit" parent="UI/Network Popup/LAN/Address Row" unique_id=2137392065]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "localhost"
 
-[node name="Port Label" type="Label" parent="UI/Network Popup/LAN/Address Row"]
+[node name="Port Label" type="Label" parent="UI/Network Popup/LAN/Address Row" unique_id=821464390]
+visible = false
 layout_mode = 2
 text = "Port:"
 
-[node name="Port LineEdit" type="LineEdit" parent="UI/Network Popup/LAN/Address Row"]
+[node name="Port LineEdit" type="LineEdit" parent="UI/Network Popup/LAN/Address Row" unique_id=1480917344]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
 text = "16384"
 
-[node name="Actions Row" type="HBoxContainer" parent="UI/Network Popup/LAN"]
+[node name="Discovery" type="VBoxContainer" parent="UI/Network Popup/LAN" unique_id=1609427592]
+layout_mode = 2
+
+[node name="Scan Row" type="HBoxContainer" parent="UI/Network Popup/LAN/Discovery" unique_id=1931422658]
+layout_mode = 2
+
+[node name="Scan Button" type="Button" parent="UI/Network Popup/LAN/Discovery/Scan Row" unique_id=16812827]
+layout_mode = 2
+text = "Scan LAN"
+
+[node name="Status Label" type="Label" parent="UI/Network Popup/LAN/Discovery/Scan Row" unique_id=1292230134]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Server List" type="ItemList" parent="UI/Network Popup/LAN/Discovery" unique_id=113646355]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Actions Row" type="HBoxContainer" parent="UI/Network Popup/LAN" unique_id=1765885007]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Host Only Button" type="Button" parent="UI/Network Popup/LAN/Actions Row"]
+[node name="Host Only Button" type="Button" parent="UI/Network Popup/LAN/Actions Row" unique_id=102001277]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Host Only"
 
-[node name="Host Button" type="Button" parent="UI/Network Popup/LAN/Actions Row"]
+[node name="Host Button" type="Button" parent="UI/Network Popup/LAN/Actions Row" unique_id=1601375512]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Host"
 
-[node name="Join Button" type="Button" parent="UI/Network Popup/LAN/Actions Row"]
+[node name="Join Button" type="Button" parent="UI/Network Popup/LAN/Actions Row" unique_id=2112199625]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Join"
 
-[node name="Noray" type="VBoxContainer" parent="UI/Network Popup"]
+[node name="Noray" type="VBoxContainer" parent="UI/Network Popup" unique_id=568679488]
 visible = false
 layout_mode = 2
+metadata/_tab_index = 2
 
-[node name="Noray Address Row" type="HBoxContainer" parent="UI/Network Popup/Noray"]
+[node name="Noray Address Row" type="HBoxContainer" parent="UI/Network Popup/Noray" unique_id=1968957701]
 layout_mode = 2
 
-[node name="Address Label" type="Label" parent="UI/Network Popup/Noray/Noray Address Row"]
+[node name="Address Label" type="Label" parent="UI/Network Popup/Noray/Noray Address Row" unique_id=1299416990]
 layout_mode = 2
 text = "noray host:"
 
-[node name="Address LineEdit" type="LineEdit" parent="UI/Network Popup/Noray/Noray Address Row"]
+[node name="Address LineEdit" type="LineEdit" parent="UI/Network Popup/Noray/Noray Address Row" unique_id=612371565]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "tomfol.io:8890"
 placeholder_text = "noray.example.com:8890"
 
-[node name="OID Row" type="HBoxContainer" parent="UI/Network Popup/Noray"]
+[node name="OID Row" type="HBoxContainer" parent="UI/Network Popup/Noray" unique_id=829698770]
 layout_mode = 2
 
-[node name="OID Label" type="Label" parent="UI/Network Popup/Noray/OID Row"]
+[node name="OID Label" type="Label" parent="UI/Network Popup/Noray/OID Row" unique_id=1611646548]
 layout_mode = 2
 text = "Open ID: "
 
-[node name="OID Value" type="LineEdit" parent="UI/Network Popup/Noray/OID Row"]
+[node name="OID Value" type="LineEdit" parent="UI/Network Popup/Noray/OID Row" unique_id=1985366242]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "123456789"
 editable = false
 
-[node name="Noray Actions Row" type="HBoxContainer" parent="UI/Network Popup/Noray"]
+[node name="Noray Actions Row" type="HBoxContainer" parent="UI/Network Popup/Noray" unique_id=245981687]
 layout_mode = 2
 
-[node name="Connect Button" type="Button" parent="UI/Network Popup/Noray/Noray Actions Row"]
+[node name="Connect Button" type="Button" parent="UI/Network Popup/Noray/Noray Actions Row" unique_id=2088014184]
 layout_mode = 2
 text = "Connect"
 
-[node name="Disconnect Button" type="Button" parent="UI/Network Popup/Noray/Noray Actions Row"]
+[node name="Disconnect Button" type="Button" parent="UI/Network Popup/Noray/Noray Actions Row" unique_id=716929844]
 layout_mode = 2
 text = "Disconnect"
 
-[node name="HSeparator" type="HSeparator" parent="UI/Network Popup/Noray"]
+[node name="HSeparator" type="HSeparator" parent="UI/Network Popup/Noray" unique_id=47697112]
 layout_mode = 2
 
-[node name="Connect Host Row" type="HBoxContainer" parent="UI/Network Popup/Noray"]
+[node name="Connect Host Row" type="HBoxContainer" parent="UI/Network Popup/Noray" unique_id=265664585]
 layout_mode = 2
 
-[node name="Host Label" type="Label" parent="UI/Network Popup/Noray/Connect Host Row"]
+[node name="Host Label" type="Label" parent="UI/Network Popup/Noray/Connect Host Row" unique_id=1260457755]
 layout_mode = 2
 text = "Target Host: "
 
-[node name="Host LineEdit" type="LineEdit" parent="UI/Network Popup/Noray/Connect Host Row"]
+[node name="Host LineEdit" type="LineEdit" parent="UI/Network Popup/Noray/Connect Host Row" unique_id=2045208310]
 layout_mode = 2
 size_flags_horizontal = 3
 placeholder_text = "Host OID"
 
-[node name="Connect Actions Row" type="HBoxContainer" parent="UI/Network Popup/Noray"]
+[node name="Connect Actions Row" type="HBoxContainer" parent="UI/Network Popup/Noray" unique_id=301013679]
 layout_mode = 2
 
-[node name="Host Only Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row"]
+[node name="Host Only Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row" unique_id=983101224]
 layout_mode = 2
 text = "Host Only"
 
-[node name="Host Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row"]
+[node name="Host Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row" unique_id=1786051936]
 layout_mode = 2
 text = "Host"
 
-[node name="Join Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row"]
+[node name="Join Button" type="Button" parent="UI/Network Popup/Noray/Connect Actions Row" unique_id=625116000]
 layout_mode = 2
 text = "Join"
 
-[node name="Force Relay Checkbox" type="CheckBox" parent="UI/Network Popup/Noray/Connect Actions Row"]
+[node name="Force Relay Checkbox" type="CheckBox" parent="UI/Network Popup/Noray/Connect Actions Row" unique_id=2009660900]
 layout_mode = 2
 text = "Force Relay"
 
-[node name="LAN Bootstrapper" type="Node" parent="UI/Network Popup" node_paths=PackedStringArray("connect_ui", "address_input", "port_input")]
+[node name="LAN Bootstrapper" type="Node" parent="UI/Network Popup" unique_id=1442353647 node_paths=PackedStringArray("connect_ui", "address_input", "port_input", "port_label", "transport_dropdown", "discovery_container", "server_list", "scan_button", "status_label", "poll_rate_input")]
 script = ExtResource("12_gjc7i")
 connect_ui = NodePath("..")
 address_input = NodePath("../LAN/Address Row/Address LineEdit")
 port_input = NodePath("../LAN/Address Row/Port LineEdit")
+port_label = NodePath("../LAN/Address Row/Port Label")
+transport_dropdown = NodePath("../LAN/Transport Row/Transport")
+discovery_container = NodePath("../LAN/Discovery")
+server_list = NodePath("../LAN/Discovery/Server List")
+scan_button = NodePath("../LAN/Discovery/Scan Row/Scan Button")
+status_label = NodePath("../LAN/Discovery/Scan Row/Status Label")
+poll_rate_input = NodePath("../LAN/Poll Rate Row/Poll Rate")
 
-[node name="Noray Bootstrapper" type="Node" parent="UI/Network Popup" node_paths=PackedStringArray("connect_ui", "noray_address_input", "oid_input", "host_oid_input", "force_relay_check")]
+[node name="Noray Bootstrapper" type="Node" parent="UI/Network Popup" unique_id=1216015603 node_paths=PackedStringArray("connect_ui", "noray_address_input", "oid_input", "host_oid_input", "force_relay_check")]
 script = ExtResource("11_vpdh0")
 connect_ui = NodePath("..")
 noray_address_input = NodePath("../Noray/Noray Address Row/Address LineEdit")
@@ -298,7 +362,7 @@ oid_input = NodePath("../Noray/OID Row/OID Value")
 host_oid_input = NodePath("../Noray/Connect Host Row/Host LineEdit")
 force_relay_check = NodePath("../Noray/Connect Actions Row/Force Relay Checkbox")
 
-[node name="Player stats" type="Control" parent="UI" node_paths=PackedStringArray("score_label", "score_manager")]
+[node name="Player stats" type="Control" parent="UI" unique_id=2072273522 node_paths=PackedStringArray("score_label", "score_manager")]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -311,26 +375,26 @@ script = ExtResource("12_5kocp")
 score_label = NodePath("VBoxContainer/Score HBox/Score Value")
 score_manager = NodePath("../../ScoreManager")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Player stats"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Player stats" unique_id=333868785]
 layout_mode = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="Score HBox" type="HBoxContainer" parent="UI/Player stats/VBoxContainer"]
+[node name="Score HBox" type="HBoxContainer" parent="UI/Player stats/VBoxContainer" unique_id=526279988]
 layout_mode = 2
 
-[node name="Score Label" type="Label" parent="UI/Player stats/VBoxContainer/Score HBox"]
+[node name="Score Label" type="Label" parent="UI/Player stats/VBoxContainer/Score HBox" unique_id=867624206]
 layout_mode = 2
 text = "Score:"
 label_settings = ExtResource("10_0ix7v")
 
-[node name="Score Value" type="Label" parent="UI/Player stats/VBoxContainer/Score HBox"]
+[node name="Score Value" type="Label" parent="UI/Player stats/VBoxContainer/Score HBox" unique_id=1464442471]
 layout_mode = 2
 text = "8
 "
 label_settings = ExtResource("10_0ix7v")
 
-[node name="Joining Screen" type="Control" parent="UI"]
+[node name="Joining Screen" type="Control" parent="UI" unique_id=950087435]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -339,7 +403,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ColorRect" type="ColorRect" parent="UI/Joining Screen"]
+[node name="ColorRect" type="ColorRect" parent="UI/Joining Screen" unique_id=1535667814]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -348,7 +412,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Label" type="Label" parent="UI/Joining Screen"]
+[node name="Label" type="Label" parent="UI/Joining Screen" unique_id=908263936]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -360,7 +424,7 @@ label_settings = SubResource("LabelSettings_l686d")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Score Screen" parent="UI" instance=ExtResource("14_85lvt")]
+[node name="Score Screen" parent="UI" unique_id=1230320440 instance=ExtResource("14_85lvt")]
 visible = false
 layout_mode = 1
 
